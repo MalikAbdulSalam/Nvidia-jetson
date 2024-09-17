@@ -1,5 +1,6 @@
 # Nvidia-jetson complete configurations
 Complete configuration of jetson
+create virtual environment in jetson  , install python3.8 in jetson ,  install ultralytics in jetson , install pyqt5 in jetson
 
 ![install pyqt in jetson , install python3.8 in jetson ,  install ultralytics in jetson , create virtual environment in jetson](2.png)
 
