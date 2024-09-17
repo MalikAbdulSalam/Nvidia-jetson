@@ -1,6 +1,6 @@
-# Nvidia-jetson
+# Nvidia-jetsonn complete configurations
 Complete configuration of jetson
-# Configure Python 3.8 on Jetson Nano (jetpack 4.6)
+# Configure Python 3.8 on Jetson Nano (jetpack 4.x)
 
 Jetpack 4.x supports python 3.6 by default on base environment
 
@@ -34,3 +34,62 @@ sudo make altinstall python3.8 --version
 That's it! You have successfully installed Python 3.8 on your Jetson Nano. 
 
 Now you have two python versions on Jetson nano 3.6.9 and 3.8.
+# Create Virtual Environment with Python 3.8 on jetson Nano (jetpack4.6)
+
+Jetson nano jetpack 4.6 contains python 3.6.9, which is an older version. If we want to create a Python Virtual Environement with python 3.8 than follow the following steps
+
+First of all install Python 3.8 in the base environment (Follow the above given instructions in section I)
+
+create a separate environment using python 3.8. execute following commands in terminal
+```bash
+python3.8 -m venv myenv 
+source myenv/bin/activate
+```
+check python version
+```bash
+python –version
+```
+# Configure Torch and Torchvision with Python 3.8 on jetson Nano (jetpack4.6)
+Follow the following steps to get cuda configured torch and torchvision
+
+(if you did not install python 3.8 manually than first install python3.8 on the base by following section I.)
+I you already installed python 3.8 and made python virtual environement then you can skip these steps
+```bash
+python3.8 -m venv venv 
+source venv/bin/activate
+```
+install pip
+```bash
+pip install -U pip wheel gdown
+```
+Download pytorch 1.11.0 
+```bash
+gdown https://drive.google.com/uc?id=1hs9HM0XJ2LPFghcn7ZMOs5qu5HexPXwM 
+```
+Download torchvision 0.12.0 
+```bash
+gdown https://drive.google.com/uc?id=1m0d8ruUY8RvCP9eVjZw4Nc8LAwM8yuGV
+```
+install downloaded torch and torchvision
+```bash
+python3.8 -m pip install torch-*.whl torchvision-*.whl
+```
+now you have cuda supported torch available in python virtual environment (venv)
+# Run yolov8 Ultralytics
+clone the ultralytics repository
+```bash
+git clone https://github.com/ultralytics/ultralytics
+cd ultralytics
+```
+Install the Python package for YOLOv8
+```bash
+pip install .
+```
+RunYoloV8 for detection task
+```bash
+yolo task=detect mode=predict model=yolov8n.pt source=0 show=True 
+```
+RunYoloV8 for segmentation task
+```bash
+yolo task=segment mode=predict model=yolov8n-seg.pt source=0 show=True
+```bash
