@@ -1,7 +1,7 @@
 # Nvidia-jetson complete configurations
 Complete configuration of jetson
 ![install pyqt in jetson , install python3.8 in jetson ,  install ultralytics in jetson , create virtual environment in jetson](/home/malik/Downloads/sunbllah input/2.png)
-![Logo](images/logo.png)
+![Logo](2.png)
 
 # Configure Python 3.8 on Jetson Nano (jetpack 4.x)
 
