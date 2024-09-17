@@ -2,7 +2,11 @@
 Complete configuration of jetson
 create virtual environment in jetson  , install python3.8 in jetson ,  install ultralytics in jetson , install pyqt5 in jetson
 
-![install pyqt in jetson , install python3.8 in jetson ,  install ultralytics in jetson , create virtual environment in jetson](2.png)
+
+<div align="center">
+  <img src="2.png" alt="Install PyQt in Jetson, Install Python 3.8 in Jetson, Install Ultralytics in Jetson, Create Virtual Environment in Jetson" />
+</div>
+
 
 # Configure Python 3.8 on Jetson Nano (jetpack 4.x)
 
