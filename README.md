@@ -1,10 +1,10 @@
-# Nvidia-jetsonn complete configurations
+# Nvidia-jetson complete configurations
 Complete configuration of jetson
 # Configure Python 3.8 on Jetson Nano (jetpack 4.x)
 
 Jetpack 4.x supports python 3.6 by default on base environment
 
-Nvidia recommends not to upgrade this python version. If we want to install Python we can build python from source to avoid conflicts. Following are the key steps to install python==3.8:
+Nvidia recommends not to upgrade this python version. If we want to install another Python version we can build python from source to avoid conflicts. Following are the key steps to install python==3.8:
 
 run following commands one by one in terminal
 ```bash
@@ -35,6 +35,14 @@ sudo make altinstall python3.8 --version
 That's it! You have successfully installed Python 3.8 on your Jetson Nano. 
 
 Now you have two python versions on Jetson nano 3.6.9 and 3.8.
+for python 3.6.9 use python3.6
+```bash
+python3.6 –version
+```
+for python 3.8 use python3.8
+```bash
+python3.8 –version
+```
 # Create Virtual Environment with Python 3.8 on jetson Nano (jetpack4.x)
 
 Jetson nano jetpack 4.x contains python 3.6.9, which is an older version. If we want to create a Python Virtual Environement with python 3.8 than follow the following steps
@@ -75,7 +83,17 @@ install downloaded torch and torchvision
 ```bash
 python3.8 -m pip install torch-*.whl torchvision-*.whl
 ```
-now you have cuda supported torch available in python virtual environment (venv)
+open python in terminal
+```bash
+python3.8
+```
+run the following python code
+```bash
+import torch
+print(torch.__version__)  # Check PyTorch version
+print(torch.cuda.is_available())  # Check if CUDA is available
+```
+If the answer is "True" Congrats.... you have cuda supported torch available in python virtual environment (venv)
 # Run yolov8 Ultralytics
 clone the ultralytics repository
 ```bash
