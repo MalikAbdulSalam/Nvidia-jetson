@@ -34,9 +34,9 @@ sudo make altinstall python3.8 --version
 That's it! You have successfully installed Python 3.8 on your Jetson Nano. 
 
 Now you have two python versions on Jetson nano 3.6.9 and 3.8.
-# Create Virtual Environment with Python 3.8 on jetson Nano (jetpack4.6)
+# Create Virtual Environment with Python 3.8 on jetson Nano (jetpack4.x)
 
-Jetson nano jetpack 4.6 contains python 3.6.9, which is an older version. If we want to create a Python Virtual Environement with python 3.8 than follow the following steps
+Jetson nano jetpack 4.x contains python 3.6.9, which is an older version. If we want to create a Python Virtual Environement with python 3.8 than follow the following steps
 
 First of all install Python 3.8 in the base environment (Follow the above given instructions in section I)
 
@@ -49,7 +49,7 @@ check python version
 ```bash
 python –version
 ```
-# Configure Torch and Torchvision with Python 3.8 on jetson Nano (jetpack4.6)
+# Configure Torch and Torchvision with Python 3.8 on jetson Nano (jetpack4.x)
 Follow the following steps to get cuda configured torch and torchvision
 
 (if you did not install python 3.8 manually than first install python3.8 on the base by following section I.)
@@ -58,7 +58,7 @@ I you already installed python 3.8 and made python virtual environement then you
 python3.8 -m venv venv 
 source venv/bin/activate
 ```
-install pip
+install necessary libraries
 ```bash
 pip install -U pip wheel gdown
 ```
@@ -92,4 +92,42 @@ yolo task=detect mode=predict model=yolov8n.pt source=0 show=True
 RunYoloV8 for segmentation task
 ```bash
 yolo task=segment mode=predict model=yolov8n-seg.pt source=0 show=True
+```
+# Configure PyQt5 from Source in Jetson
+run following command 
 ```bash
+sudo apt-get install libx11-*
+sudo apt-get install libx11*
+sudo apt-get install libxcb-*
+sudo apt-get install libxcb*
+sudo apt-get install libxkbcommon-dev
+sudo apt-get install libxkbcommon-x11-dev
+```
+Download Qt source:
+if you need the whole Qt5 (~900MB):
+```bash
+wget http://master.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz 217
+```
+if you need the qtbase only
+qtbase (basic module such as QtCore, QtGui and QtWidget)(~90MB):
+```bash
+wget http://master.qt.io/archive/qt/5.15/5.15.2/submodules/qtbase-everywhere-src-5.15.2.tar.xz 145
+```
+Now configure and install Qt5 (here I used qtbase):
+```bash
+       tar -xpf qtbase-everywhere-src-5.15.2.tar.xz
+```
+```bash
+cd qtbase-everywhere-src-5.15.2/
+./configure -xcb
+```
+(must enable xcb here manually)
+Choose “o” to install Qt open source version.
+```bash
+make -j4
+```
+install make files
+```bash
+sudo make install
+```
+Now we have Qt5 under /usr/local/Qt-5.15.2
