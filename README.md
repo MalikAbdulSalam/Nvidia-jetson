@@ -17,7 +17,8 @@ wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
 ```
 Extract the downloaded archive by running the following command:
 ```bash
-tar -xf Python-3.8.12.tar.xz cd Python-3.8.12 
+tar -xf Python-3.8.12.tar.xz
+cd Python-3.8.12 
 ```
 Configure the build process:
 ```bash 
