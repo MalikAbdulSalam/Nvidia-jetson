@@ -39,7 +39,9 @@ make -j4
 ```
 Once the compilation is complete, you can install Python by running the following command: 
 ```bash
-sudo make altinstall python3.8 --version 
+sudo make altinstall
+
+python3.8 --version 
 ```
 That's it! You have successfully installed Python 3.8 on your Jetson Nano. 
 
