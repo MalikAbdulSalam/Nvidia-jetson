@@ -94,6 +94,10 @@ install downloaded torch and torchvision
 ```bash
 python3.8 -m pip install torch-*.whl torchvision-*.whl
 ```
+```bash
+sudo apt-get install libopenblas-base libopenmpi-dev libomp-dev
+```
+
 open python in terminal
 ```bash
 python3.8
